@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>闭包</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        window.onload = function(){
+            var lis = document.getElementsByTagName('li');
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onmouseover = over(i);
+                lis[i].onmouseout  = out(i);
+            }
+
+            function over(n){
+                function f2(){
+                    lis[n].style.backgroundColor = 'lightgreen';
+                }
+                return f2;
+            }
+
+            function out(n){
+                function f2(){
+                    lis[n].style.backgroundColor = '';
+                }
+                return f2;
+            }
+        }
+
+        // window.onload = function(){
+        //     // 创建无序列表
+        //     var ull     = document.createElement('ul');
+        //     var persons = ['姚明','麦迪','科比','乔丹'];
+
+        //     for (var i = 0; i < persons.length; i++) {
+        //         // alert(persons[i]);
+        //         var lii   = document.createElement('li');         // 元素
+        //         var litxt = document.createTextNode(persons[i]);  // 文本
+
+        //         lii.appendChild(litxt);  // 追加节点
+        //         ull.appendChild(lii);
+
+        //         lii.onmouseover = function(){
+        //             this.style.backgroundColor = 'lightblue';
+        //         }
+
+        //         lii.onmouseout = function(){
+        //             this.style.backgroundColor = '';
+        //         }
+        //     }
+
+        //     document.body.appendChild(ull);
+        // }
+    </script>
+</head>
+<body>
+    Hello NBA!
+    <ul><li>姚明</li><li>麦迪</li><li>科比</li><li>乔丹</li></ul>
+</body>
+</html>

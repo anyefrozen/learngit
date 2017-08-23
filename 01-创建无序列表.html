@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>创建无序列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        window.onload = function(){
+            // 创建无序列表
+            var ull     = document.createElement('ul');
+            var persons = ['关羽','张飞','赵云','典韦'];
+
+            for (var i = 0; i < persons.length; i++) {
+                // alert(persons[i]);
+                var lii   = document.createElement('li');         // 元素
+                var litxt = document.createTextNode(persons[i]);  // 文本
+
+                lii.appendChild(litxt);  // 追加节点
+                ull.appendChild(lii);
+
+                lii.onmouseover = function(){
+                    this.style.backgroundColor = 'lightblue';
+                }
+
+                lii.onmouseout = function(){
+                    this.style.backgroundColor = '';
+                }
+            }
+
+            document.body.appendChild(ull);
+        }
+
+       /* var title = 'php';
+        function f1(){
+            console.log('f1:'+title);
+            function f2(){
+                console.log('f2:'+title);
+                function f3(){
+                    console.log('f3:'+title);
+                }
+                f3();
+            }
+            f2();
+        }
+        f1();
+        console.log('now:'+title);*/
+
+        /*var addr = 'beijing';
+        function f1(){
+            console.log(addr);
+        }
+
+        function f2(){
+            var addr = 'shanghai';
+            f1();
+            function f3(){
+                var addr = 'tianjin';
+                f1();
+            }
+            f3();
+        }
+        f2();*/
+
+        /*function f1(){
+            var height = 170;
+            function f2(){
+                console.log(height);
+            }
+            return f2;
+        }
+
+        var ff = f1();
+        var height = 175;
+        ff();*/
+
+        /*function f1(){
+            var age = 20;
+            function f2(){
+                console.log(age);
+            }
+            return f2;
+        }
+        var fa = f1();
+        fa();*/
+
+        /*function f1(age){
+            function f2(){
+                console.log(age);
+            }
+            return f2;
+        }
+
+        var fa = f1(10);
+        var fb = f1(20);
+        var fc = f1(30);
+        fa();
+        fb();
+        fc();*/
+
+        /*var arr = new Array();
+        for (var i = 0; i < 4; i++) {
+            arr[i] = function(){console.log(i);}
+        }
+        alert(i);
+        arr[0]();
+        arr[1]();
+        arr[2]();
+        arr[3]();*/
+
+       /* var arr = new Array();
+        for(var i =0;i<4;i++){
+            arr[i] = f1(i);
+        }
+        arr[0]();
+        arr[1]();
+        arr[2]();
+        arr[3]();
+
+        function f1(n){
+            function f2(){
+                console.log(n);
+            }
+            return f2;
+        }*/
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
