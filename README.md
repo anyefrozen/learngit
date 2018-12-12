@@ -3,3 +3,5 @@
 
 #第一次提交
 hello wrold!
+
+Creating a new branch is quick & simple.
