@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正则简单使用!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        /*// 正则使用
+        var str = '<div>hello beijing</div>';
+        var reg = /abcd/;        /具体正则内容/;  定义正则表达模式   
+
+        var rst = str.match(reg);
+        console.log(rst);*/
+
+        /*// 定义字符集组成挣
+        // 1、[a - f] a到f之间匹配任意个单个字母，没有特殊说明，只进行单次匹配，
+        // 从左边匹配出来第一个符合模式的内容
+        var str = 'hello beijing';
+        var reg = /[a-f]/;
+
+        // 2、[0 - 9] 匹配任何一个单个数字
+        var str = 'beijing2014-10-9';
+        var reg = /[0-9]/;
+
+        // 3、[pmwdg] 在其中匹配任意一个单字母
+        var str = 'welcome';
+        var reg = /[pmwdg]/;
+
+        // 4、[a-zA-Z] 大小写字母匹配其中的一个
+        var str = 'Top desk';
+        var reg = /[a-zA-Z]/;*/
+
+        /*// 5、[7-2][f-a] 字母或数字范围只能由小到大，不能由大到小  => error
+        var str = '2017';
+        var reg = /[f-a]/;
+        var rst = str.match(reg);
+        console.log(rst);*/
+
+        // * 前面单元出现0次或任意次数
+        // var str = '2017-08-24';
+        // var reg = /[0-9]*/;
+
+        // var str = 'ggle';
+        // var reg = /go*gle/;
+
+        // var str = '-10-9';
+        // var reg = /[0-9]*/;
+        // var rst = str.match(reg);
+        // console.log(rst);
+        
+        // var str = '2017-08-24';
+        // var reg = /([0-9]+)-([0-9]+)-([0-9]+)/;
+        // var rst = str.match(reg);
+        // console.log(rst);
+
+        // var str = '2017-10-10';
+        // var reg = /[0-9]+-([0-9]+)-\1/;
+        // var rst = str.match(reg);
+        // console.log(rst);
+        
+        // var str = '2017-10-10 10:10:10';
+        // var reg = /[0-9]+-([0-9]+)-([0-9]+) \1:\2:[0-9]+/; 
+        // var rst = str.match(reg);
+        // console.log(rst);
+
+        var str = 'tom is 20 age,tom study 4 grade';
+        var reg = /(tom)[ a-z0-9]+,\1[ a-z0-9]+/;
+        var rst = str.match(reg);
+        console.log(rst);
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    hello !
+</body>
+</html>

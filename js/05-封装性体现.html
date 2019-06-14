@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>封装性体现</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        // 1、封装
+        /*function Animal(){
+            var fight = '练习格斗';
+            var swim = function(){
+                console.log('加强肺活量，练习游泳');
+            }
+
+            this.bisai = function(){
+                console.log(fight);
+                swim();
+            }
+
+            this.color = 'gray';
+            this.run = function(){
+
+            }
+        }
+
+        var dog = new Animal();
+        // console.log(dog);
+        // dog.bisai();
+        console.log(dog.color);*/
+
+        // 2、继承
+        /*function Animal(){
+            this.color = 'gray';
+        }
+
+        Animal.prototype.age = 5;
+        Animal.prototype.say = 'I am tom';
+        Animal.prototype.run = function(){
+            console.log('每天跑步2小时，健康工作50年');
+        }
+
+        var dog = new Animal();
+        console.log(dog);*/
+
+        /*var cat = {name:'kitty',age:3,climb:function(){console.log('在爬树');}};
+        function Tiger(){
+            this.color = 'yellow';
+            this.act = '猛虎捕食';
+        }
+
+        Tiger.prototype = cat;
+
+        var north = new Tiger();
+        // console.log(north.color);
+        // north.climb();*/
+
+        /*function Wolf(){
+            this.eye = '闪闪发光';
+            this.color = 'gray';
+        }
+
+        var seven = new Wolf();
+        seven.color = 'black';
+
+        function Dog(){
+            this.hobby = '看家护林';
+            this.color = 'yellow';
+        }
+
+        Dog.prototype = seven;
+        var xiaohei = new Dog();
+        xiaohei.color = 'white';
+
+        console.log(xiaohei);
+        console.log(xiaohei.color);*/
+
+        /*function Wolf(){
+            this.eye = '闪闪发光';
+        }
+        var seven = new Wolf();
+
+        function Dog(){
+            this.hobby = '看家护林';
+        }
+        Dog.prototype = seven;
+        var xiaohei = new Dog();
+
+        console.log(xiaohei.hasOwnProperty('hobby'));
+        console.log(xiaohei.hasOwnProperty('eye'));*/
+
+        /*var seven = {tail:'笔直的尾巴',leg:4,color:'gray'};
+        function Dog(){
+            this.hobby = '看家护林';
+        }
+
+        Dog.prototype = seven;
+        var xiaohei = new Dog();
+
+        // for(var k in xiaohei){
+        //     console.log(k +' -- ' + xiaohei[k]);
+        // }
+        
+        // for(var m in xiaohei){
+        //     var message = xiaohei.hasOwnProperty(m) ? '本身成员' : '继承成员';
+        //     console.log(m + ' -- ' + message);
+        // }*/
+        
+        /*function Cat(){
+            this.weapon = '伶牙俐齿';
+            this.color = 'black and yello';
+        }
+        var kitty = new Cat();
+
+        function Tiger(){
+            this.act = '猛虎捕食';
+        }
+
+        Tiger.prototype = kitty;
+        var north = new Tiger();
+
+        function Wolf(){
+            this.eye = '闪闪发光';
+        }
+        Wolf.prototype = north;
+        var seven = new Wolf();
+
+        function Dog(){
+            this.hobby = '看家护林';
+        }
+        Dog.prototype = seven;
+        var xiaohei = new Dog();
+        xiaohei.color = 'gray';
+
+        console.log(xiaohei);
+        console.log(xiaohei.color);*/
+
+        /*var kitty = {color:'white',say:'喵喵',climb:function(){console.log('在爬树')}};
+        var seven = {leg:4,eye:'发光'};
+
+        function Dog(){
+            this.color = 'gray';
+            this.age = 5;
+        }
+
+        Dog.prototype.extend = function(obj){
+            for(var i in obj){
+                if(!this.hasOwnProperty(i)){
+                    this[i] = obj[i];
+                }
+            }
+        }
+
+        var xiaohei = new Dog();
+        xiaohei.extend(kitty);
+        xiaohei.extend(seven);
+        console.log(xiaohei);*/
+
+       /* try{
+            // console.log(title);
+            var dog = new 100();
+        }catch(ex){
+            console.log(ex.message);
+        }
+*/
+
+    </script>
+</head>
+<body>
+</body>
+</html>
