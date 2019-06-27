@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="修改msg" @click="msg='No'">
+        <h3 id="h3">{{ msg }}</h3>
+    </div>
+
+    <script>
+        // 创建 Vue 实例，得到 ViewModel  => 生命周期钩子 = 生命周期函数 = 生命周期事件
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'ok',
+            },
+            methods:{
+                show(){
+                    console.log('执行了show方法');
+                }
+            },
+            beforeCreate(){ // 这是我们遇到的第一个生命周期函数，标识实例完全别创建出来之前，会执行它
+                // console.log(this.msg);
+                // this.show();
+                // 注意： 在 beforeCreate 生命周期函数执行的时候， data 和 methods 中的 数据都还灭有呗初始化
+
+            },
+            created(){ // 这是我们遇到的第二个生命周期函数
+                console.log(this.msg);
+                this.show();
+                // 注意： 在 created 中， data 和 methods 中的数据都已经呗初始化好了
+                // 如果要调用methods中的方法，或者操作 data 中的数据，最早，只能在 created 中操作
+            },
+            beforeMount(){
+                // 挂载
+            }
+        })
+   
+    </script>
+</body>
+</html>
