@@ -33,14 +33,40 @@
 
             },
             created(){ // 这是我们遇到的第二个生命周期函数
-                console.log(this.msg);
-                this.show();
+                // console.log(this.msg);
+                // this.show();
                 // 注意： 在 created 中， data 和 methods 中的数据都已经呗初始化好了
                 // 如果要调用methods中的方法，或者操作 data 中的数据，最早，只能在 created 中操作
             },
-            beforeMount(){
-                // 挂载
+            beforeMount(){ // 这是遇到的第3个生命周期函数，表示模板已经在内存中编辑完成了，但是尚未把模板渲染到页面中
+                // 此函数执行的时候，模板以及在内存中编译好了，但是尚未挂在到页面中去，此时，页面还是旧的
+                // console.log(document.getElementById('h3').innerText); // {{ msg }}
+                // 在 beforeMount 执行的时候，页面中的元素，还没有真正替换过来， 只是之前写的一些模板字符串
+            },
+            mounted(){ // 这是遇到的第4个生命周期函数，表示内存中模板，已经真实的挂在到了页面中，用户已经可以看到渲染好的页面了
+                // console.log(document.getElementById('h3').innerText); // ok
+                // 注意： mounted 是 实例创建期间的最后一个生命周期函数， 当执行完 mount4ed 就表示，实例已经被完全创建好了，此时，如果没有其他操作的话，这个实例，就躺在我们的内存中，一动不动
+                // 只要执行完了 mounted ,就表示整个Vue实例已经初始化完毕了； 此时，组件已经脱离了创建阶段进到了运行阶段
+            },
+
+            // 接下来是运行中的两个事件
+            beforeUpdate(){
+                // 这时候，表示，我们的界面还没有被更新（数据被更新了码？ 数据很定被更新了）
+                console.log('界面上元素的内容：'+document.getElementById('h3').innerText);
+                console.log('data 中的 msg 数据是：'+ this.msg);
+
+                // 得出结论： 当执行 beforeUpdate 的时候， 页面中的显示的数据，还是旧的，此时 data 数据是最新的, 页面尚未和 罪行的数据保持同步
+            },
+            updated(){
+                console.log('界面上元素的内容：'+document.getElementById('h3').innerText);
+                console.log('data 中的 msg 数据是：'+ this.msg);
+
+                // updatedd 事件执行的时候，页面和data 数据已经保持同步了，都是最新的
             }
+
+            // 当执行 beforeDestroy 钩子函数的时候，Vue实例就已经从运行阶段，进入到了销毁阶段；当执行 beforeDestroy 的时候，实例身上所有的data和所有的methods,以及过滤器、指令...... 都处于可用折腾，此时还没有真正执行销毁的过程
+
+            // 当执行到 destroy 函数的时候，组件已经被完全销毁了，此时，组件中所有的数据、方法、指令、过滤器 ...... 都已经不可用了
         })
    
     </script>
