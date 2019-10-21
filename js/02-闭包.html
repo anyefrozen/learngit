@@ -4,27 +4,27 @@
     <title>闭包</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript">
-        window.onload = function(){
-            var lis = document.getElementsByTagName('li');
-            for (var i = 0; i < lis.length; i++) {
-                lis[i].onmouseover = over(i);
-                lis[i].onmouseout  = out(i);
-            }
+        // window.onload = function(){
+        //     var lis = document.getElementsByTagName('li');
+        //     for (var i = 0; i < lis.length; i++) {
+        //         lis[i].onmouseover = over(i);
+        //         lis[i].onmouseout  = out(i);
+        //     }
 
-            function over(n){
-                function f2(){
-                    lis[n].style.backgroundColor = 'lightgreen';
-                }
-                return f2;
-            }
+        //     function over(n){
+        //         function f2(){
+        //             lis[n].style.backgroundColor = 'lightgreen';
+        //         }
+        //         return f2;
+        //     }
 
-            function out(n){
-                function f2(){
-                    lis[n].style.backgroundColor = '';
-                }
-                return f2;
-            }
-        }
+        //     function out(n){
+        //         function f2(){
+        //             lis[n].style.backgroundColor = '';
+        //         }
+        //         return f2;
+        //     }
+        // }
 
         // window.onload = function(){
         //     // 创建无序列表
@@ -50,6 +50,69 @@
 
         //     document.body.appendChild(ull);
         // }
+
+
+        // ajaxGetData();
+        // function ajaxGetData(){
+        //     $.ajax({
+        //         url:'/wap.php?g=Wap&c=WenHuiCard&a=ajax_get_list',
+        //         dataType:'json',
+        //         type:'POST',
+        //         success:function(data){  
+        //             if(data['status'] == 0){
+        //                 // var len  = data['result']['list'].length;
+        //                 // console.log(len);
+
+        //                 var htmlData = data['result']['list'];
+        //                 console.log(htmlData);
+
+        //                 $(".huiCard").html(getHtml( htmlData ));
+        //             }else{
+        //             }              
+        //         }
+        //     });
+        // }
+
+
+        // 测试数据
+        var data = '{"status":0,"msg":"1111","result":{"list":[{"card_price":"80","group_id":"11","name":"文惠卡商品","sale_count":"1"}]}}';
+        data = eval("("+data+")");;
+
+        if(data['status'] == 0){
+            // var len  = data['result']['list'].length;
+            // console.log(len);
+
+            var htmlData = data['result']['list'];
+            // console.log(htmlData);
+
+            var htmlText = getHtml( htmlData );
+            console.log(htmlText);
+            
+            // $(".huiCard").html(getHtml( htmlData ));
+        }else{
+        } 
+
+
+        function getHtml(data){
+            var html = '';
+            var len  = data.length;
+            console.log(len);
+            for(var i = 0; i < len; i++){
+                html += 
+                        '<li>'+
+                        // '< img src=" '+ data[i]['pic_list'][0] +'" >'+
+                        '<div >'+data[i]['name']+'</div>'+
+                        '<p >'+
+                        '<span>¥&nbsp;' + data[i]['card_price'] + '</span>'+
+                        '<span >' + data[i]['sale_count'] + '件</span>'+
+                        '</p >'+
+                    '</li>';
+                
+            }
+            return html;
+        }
+
+
     </script>
 </head>
 <body>
