@@ -1,0 +1,64 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {
+   var title = {
+       text: '2020/03 差价（最高-最低）'   
+   };
+   var subtitle = {
+        text: 'Source: 东方财富'
+   };
+   var xAxis = {
+       categories: ['03/09', '03/10', '03/11', '03/12', '03/13']
+   };
+   var yAxis = {
+      title: {
+         text: '振幅 (元)'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+
+   var tooltip = {
+      valueSuffix: '元'
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+
+   var series =  [
+      {
+         name: 'ST',
+         data: [0.88, 0.71, 0.71, 0.71, 0.71]
+      }
+   ];
+
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container').highcharts(json);
+});
+</script>
+</body>
+</html>
