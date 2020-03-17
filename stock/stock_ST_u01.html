@@ -1,0 +1,75 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+   <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+   <script language="JavaScript">
+      $(document).ready(function() {
+         var title = {
+             text: '2020/01 申通快递'   
+         };
+         var subtitle = {
+              text: 'Source: 东方财富'
+         };
+         var xAxis = {
+             categories: [ 
+                                                      '01/02', '01/03',
+                           '01/06', '01/07', '01/08', '01/09', '01/10',
+                           '01/13', '01/14', '01/15', '01/16', '01/17',
+                           '01/20', '01/21', '01/22', '01/23'
+                        ]
+         };
+         var yAxis = {
+            title: {
+               text: 'ST（002468）'
+            },
+            plotLines: [{
+               value: 0,
+               width: 1,
+               color: '#808080'
+            }]
+         };   
+
+         var tooltip = {
+            valueSuffix1: '',
+         }
+
+         var legend = {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+         };
+
+         var series =  [
+            {
+               name: '单价(元)',
+               data: [
+                                             19.65, 19.74, 
+                        19.80, 19.86, 19.37, 19.50, 19.43,
+                        19.58, 19.85, 19.66, 19.57, 19.13,
+                        19.91, 19.63, 19.24, 19.01
+                     ]
+            }
+         ];
+
+         var json = {};
+
+         json.title = title;
+         json.subtitle = subtitle;
+         json.xAxis = xAxis;
+         json.yAxis = yAxis;
+         json.tooltip = tooltip;
+         json.legend = legend;
+         json.series = series;
+
+         $('#container').highcharts(json);
+      });
+   </script>
+
+</body>
+</html>

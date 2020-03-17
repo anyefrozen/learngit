@@ -1,0 +1,72 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+   <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+   <script language="JavaScript">
+      $(document).ready(function() {
+         var title = {
+             text: '2020/03 申通快递'   
+         };
+         var subtitle = {
+              text: 'Source: 东方财富'
+         };
+         var xAxis = {
+             categories: [
+                           '03/02', '03/03', '03/04', '03/05', '03/06',
+                           '03/09', '03/10', '03/11', '03/12', '03/13',
+                           '03/16', '03/17', '03/18', '03/19', '03/20'
+                        ]
+         };
+         var yAxis = {
+            title: {
+               text: 'ST（002468）'
+            },
+            plotLines: [{
+               value: 0,
+               width: 1,
+               color: '#808080'
+            }]
+         };   
+
+         var tooltip = {
+            valueSuffix1: '',
+         }
+
+         var legend = {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+         };
+
+         var series =  [
+            {
+               name: '单价(元)',
+               data: [
+                        19.28, 19.24, 19.38, 19.73, 19.62, 
+                        19.22, 19.23, 19.02, 18.42, 17.94, 
+                        17.55, 17.39, 
+                     ]
+            }
+         ];
+
+         var json = {};
+
+         json.title = title;
+         json.subtitle = subtitle;
+         json.xAxis = xAxis;
+         json.yAxis = yAxis;
+         json.tooltip = tooltip;
+         json.legend = legend;
+         json.series = series;
+
+         $('#container').highcharts(json);
+      });
+   </script>
+</body>
+</html>
