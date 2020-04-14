@@ -1,0 +1,86 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+   <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+   <script language="JavaScript">
+      $(document).ready(function() {
+         var title = {
+             text: '2020年03月 申通快递'   
+         };
+         var subtitle = {
+              text: 'Source: 东方财富'
+         };
+         var xAxis = {
+             categories: [
+                           '03/02', '03/03', '03/04', '03/05', '03/06',
+                           '03/09', '03/10', '03/11', '03/12', '03/13',
+                           '03/16', '03/17', '03/18', '03/19', '03/20',
+                           '03/23', '03/24', '03/25', '03/26', '03/27',
+                           '03/30', '03/31'
+                        ]
+         };
+         var yAxis = {
+            title: {
+               text: 'ST（002468）'
+            },
+            plotLines: [{
+               value: 0,
+               width: 1,
+               color: '#808080'
+            }]
+         };   
+
+         var tooltip = {
+            valueSuffix1: '',
+         }
+
+         var legend = {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+         };
+
+         var series =  [
+            {
+               name: '振幅(元)',
+               data: [  
+                        // 0.48, 0.59, 0.44, 0.51, 0.54,
+                        // 0.92, 0.71, 0.38, 0.57, 0.53, 
+                        // 0.76, 0.95, 0.36, 0.71, 0.51,
+                        // 0.52, 0.54, 0.48, 0.39, 0.28,
+                        // 0.33, 1.40
+                     ]
+            },
+            {
+               name: '换手率(%)',
+               data: [
+                        0.32, 0.42, 0.32, 0.51, 0.45,
+                        0.45, 0.46, 0.37, 0.44, 0.50,
+                        0.37, 0.31, 0.25, 0.48, 0.37,
+                        0.30, 0.39, 0.43, 0.32, 0.29,
+                        0.23, 1.01
+                     ]
+            }
+         ];
+
+         var json = {};
+
+         json.title = title;
+         json.subtitle = subtitle;
+         json.xAxis = xAxis;
+         json.yAxis = yAxis;
+         json.tooltip = tooltip;
+         json.legend = legend;
+         json.series = series;
+
+         $('#container').highcharts(json);
+      });
+   </script>
+</body>
+</html>
